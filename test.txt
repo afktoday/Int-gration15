@@ -1,9 +1,14 @@
 AFK : Ceci est un test
-
+modif 2
 modification
 -----------------
 Marie est trop cool ;)
 YOLO
 
 ROPLOPLO
+<<<<<<< HEAD
 RUPLUPLU
+=======
+RAPLAPLA
+>>>>>>> origin/master
+BLOBLO
