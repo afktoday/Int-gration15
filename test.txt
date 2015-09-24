@@ -7,7 +7,15 @@ YOLO
 
 ROPLOPLO
 <<<<<<< HEAD
+<<<<<<< HEAD
 raplaplapla
 =======
 RAPLAPLA
+>>>>>>> origin/master
+=======
+RUPLUPLU
+=======
+RAPLAPLA
+>>>>>>> origin/master
+BLOBLO
 >>>>>>> origin/master
