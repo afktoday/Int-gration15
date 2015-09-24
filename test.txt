@@ -6,4 +6,8 @@ Marie est trop cool ;)
 YOLO
 
 ROPLOPLO
+<<<<<<< HEAD
 raplaplapla
+=======
+RAPLAPLA
+>>>>>>> origin/master
