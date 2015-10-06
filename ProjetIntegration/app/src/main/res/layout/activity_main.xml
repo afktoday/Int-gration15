@@ -9,60 +9,65 @@
         android:layout_gravity="center_horizontal|top">
 
 
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="1">
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="111dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="0.07"></GridLayout>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="Login"
+                android:ems="10"
+                android:id="@+id/editText"
+                android:layout_gravity="center_horizontal|top"
+                android:password="false" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:id="@+id/editText2"
+                android:layout_gravity="center"
+                android:hint="password" />
+
+            <Button
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:text="Connexion"
+                android:onClick="VersProfil"
+                android:id="@+id/button"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="0.16" />
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Inscription"
+                android:id="@+id/button2"
+                android:layout_gravity="center_horizontal" />
+
+        </LinearLayout>
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="82dp"
         android:layout_gravity="center_horizontal|bottom"
-        android:background="@drawable/barre2">
+        android:background="@drawable/barre">
 
 
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/button2"
-            android:background="@drawable/button_profil_menu"
-            android:onClick="VersProfil"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="VersEvent"
-            android:background="@drawable/button_event_menu"
-            android:id="@+id/button"
-            android:layout_alignParentBottom="true"
-            android:layout_toRightOf="@+id/button2"
-            android:layout_toEndOf="@+id/button2"
-            android:layout_marginLeft="39dp"
-            android:layout_marginStart="39dp" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/button5"
-            android:background="@drawable/button_accueil_menu"
-            android:layout_alignParentBottom="true"
-            android:layout_toLeftOf="@+id/button6"
-            android:layout_toStartOf="@+id/button6"
-            android:layout_marginRight="39dp"
-            android:layout_marginEnd="39dp" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/button6"
-            android:background="@drawable/button_menu"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
 
     </RelativeLayout>
+
 </FrameLayout>
