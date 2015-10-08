@@ -17,12 +17,14 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void VersProfil(View view) {
-        setContentView(R.layout.activity_gestion_du_profil);
-    }
+    public void VersProfil(View view) {setContentView(R.layout.activity_gestion_du_profil);}
     public void VersEvent(View view) {
         setContentView(R.layout.creation_evenement);
     }
+    public void VersInscription(View view) {
+        setContentView(R.layout.inscription);
+    }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
