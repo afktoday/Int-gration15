@@ -1,0 +1,161 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:weightSum="1">
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="CREATION EVENEMENT "
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:gravity="center"
+            />
+        <TextView
+            android:id="@+id/messageError"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="#FF0000"
+            android:gravity="center"
+            />
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nom Evènement : "
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:gravity="center"
+            />
+        <EditText
+            android:id="@+id/nomEvent"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nom Evènement"
+            />
+        <RadioGroup
+            android:id="@+id/group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkedButton="@+id/radio2"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+            <RadioButton
+                android:id="@+id/radio1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Public"
+                android:checked="false" />
+            <RadioButton
+                android:id="@+id/radio2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Privé" />
+        </RadioGroup>
+        <EditText
+            android:id="@+id/motDePasse"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="Mot de Passe"
+            />
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Nombre Etape* : "
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:gravity="center"
+            />
+        <EditText
+            android:id="@+id/nombreEtape"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre Etape"
+            />
+        <Button
+            android:id="@+id/suivant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Suivant"
+            />
+        <Button
+            android:id="@+id/raz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Remise à zéro"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*Nombre de lieu où les utilisateurs vont passer."
+            />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="82dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:background="@drawable/barre">
+
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button3"
+            android:onClick="VersEvent"
+            android:background="@drawable/button_event_menu"
+            android:layout_gravity="center"
+            android:layout_marginLeft="31dp"
+            android:layout_marginStart="31dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button4"
+            android:background="@drawable/button_accueil_menu"
+            android:layout_marginLeft="34dp"
+            android:layout_marginStart="34dp"
+            android:layout_alignTop="@+id/button3"
+            android:layout_toRightOf="@+id/button3"
+            android:layout_toEndOf="@+id/button3" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button7"
+            android:onClick="VersProfil"
+            android:background="@drawable/button_profil_menu"
+            android:layout_alignBottom="@+id/button4"
+            android:layout_toRightOf="@+id/button4"
+            android:layout_toEndOf="@+id/button4"
+            android:layout_marginLeft="33dp"
+            android:layout_marginStart="33dp" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button8"
+            android:background="@drawable/button_event_menu"
+            android:layout_alignBottom="@+id/button7"
+            android:layout_toRightOf="@+id/button7"
+            android:layout_toEndOf="@+id/button7"
+            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp" />
+    </RelativeLayout>
+</FrameLayout>
