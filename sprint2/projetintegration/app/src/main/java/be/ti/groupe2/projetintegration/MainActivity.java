@@ -4,6 +4,7 @@ package be.ti.groupe2.projetintegration;
 
 import android.app.ProgressDialog;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.provider.Settings;
 import android.support.v7.app.ActionBarActivity;
@@ -45,14 +46,15 @@ import java.util.Map;
 
 public class MainActivity extends ActionBarActivity implements View.OnClickListener {
 
+    public static final String MY_JSON ="MY_JSON";
     //==============================================================================================
-    //====================================??????????????????========================================
+    //============================================MENU==============================================
     //==============================================================================================
 
     public void VersProfil(View view) {setContentView(R.layout.activity_gestion_du_profil);}
-    public void VersEvent(View view) {
-        setContentView(R.layout.creation_evenement);
-    }
+    public void VersEvent(View view) {setContentView(R.layout.creation_evenement);}
+    public void VersFil(View view) {setContentView(R.layout.accueil);}
+
     //==============================================================================================
     //=========================================CONNEXION============================================
     //==============================================================================================
@@ -71,7 +73,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
     String login;
     String mdp;
-    String myJson;
+    public String myJson;
 
     Boolean granted = false;
 
@@ -264,7 +266,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         else if (errorMdp)
             s = "Mot de passe différents";
         else
-            s = "enregistré";
+            s = "Enregistré";
 
         defaut.setText(s);
         //searchExistant();
@@ -362,6 +364,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         cError.setVisibility(View.INVISIBLE);
 
+
         getJSON(JSON_URL);
 
         connexion.setOnClickListener(this);
@@ -382,10 +385,12 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             extractJson();
             searchLogin();
 
-            if(granted){
+            if(granted) {
                 System.out.println("Connexion réussie");
                 //Toast.makeText(this, "Connexion réussie!",Toast.LENGTH_SHORT).show();
-                VersEvent(v);
+                Intent intent = new Intent(this, filActu.class);
+                intent.putExtra(MY_JSON, lv.getText().toString());
+                startActivity(intent);
             }
             else {
                 //Toast.makeText(this, "Connexion échouée!", Toast.LENGTH_SHORT).show();
@@ -397,6 +402,4 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             VersInscription(v);
         }
     }
-
-
 }
