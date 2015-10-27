@@ -65,6 +65,7 @@ public class filActu extends ActionBarActivity implements View.OnClickListener {
 
         extractJSON();
 
+
     }
 
 
@@ -96,11 +97,13 @@ public class filActu extends ActionBarActivity implements View.OnClickListener {
             int length = user.length();
             System.out.println(length);
             length = length -1;
-            while (length > 0){
+            while (length >= 0){
                 showData(length);
                 length --;
             }
-            adapter = new ArrayAdapter<String>(this, R.layout.accueil, R.id.editT, list);
+            adapter = new ArrayAdapter<String>(this, R.layout.list, R.id.editT, list);
+            //adapter = new ArrayAdapter<String>(this,R.layout.accueil,R.id.editT,list);
+
             tv.setAdapter(adapter);
 
         }
