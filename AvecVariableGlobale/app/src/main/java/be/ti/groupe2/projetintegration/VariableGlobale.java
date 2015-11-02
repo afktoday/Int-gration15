@@ -1,22 +1,29 @@
 package be.ti.groupe2.projetintegration;
 
 import android.app.Application;
+import android.content.Context;
 
 
 public class VariableGlobale extends Application{
 
 
-    public int iDUser;
-        public String listEvent;
+    private int iDUser;
+    private String listEvent;
+    private static Context context;
 
 
 
         @Override
         public void onCreate(){
             super.onCreate();
+            context = getApplicationContext();
             iDUser = 0;
-            listEvent = "blabla";
+            listEvent = null;
+
         }
+    public static Context getContext(){
+        return context;
+    }
 
     public int getiDUser() {
         return iDUser;

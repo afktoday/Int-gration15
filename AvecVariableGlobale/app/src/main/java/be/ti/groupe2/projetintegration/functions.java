@@ -24,7 +24,7 @@ public class functions extends VariableGlobale{
 
     static String ev;
 
-    public static String getJSON(String url, final TextView lv) {
+    public static void getJSON(String url, final TextView lv) {
         class GetJSON extends AsyncTask<String, Void, String> {
             ProgressDialog loading;
 
@@ -56,7 +56,7 @@ public class functions extends VariableGlobale{
             @Override
             protected void onPreExecute(){
                 super.onPreExecute();
-               // loading = ProgressDialog.show(this,"Loading","Please wait...");
+               //loading = ProgressDialog.show(this,"Loading","Please wait...");
             }
 
             @Override
@@ -64,14 +64,10 @@ public class functions extends VariableGlobale{
                 super.onPreExecute();
              //   loading.dismiss();
                 lv.setText(s);
-                ev = s;
-
             }
         }
         GetJSON gj = new GetJSON();
         gj.execute(url);
-        return ev;
-
     }
 
     public static JSONArray extractJson(String myJson){

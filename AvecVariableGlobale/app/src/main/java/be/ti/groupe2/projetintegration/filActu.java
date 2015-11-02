@@ -23,11 +23,11 @@ public class filActu extends Activity implements View.OnClickListener {
     private static final String MAIL = "userEmail";
     private static final String PASSWORD = "userPassword";
 
+    VariableGlobale context;
 
     private ListView tv;
     private TextView editT;
 
-    String myJson;
     Button accueil;
     Button event;
     Button profil;
@@ -49,7 +49,7 @@ public class filActu extends Activity implements View.OnClickListener {
         tv = (ListView) findViewById(R.id.tvk);
         editT = (TextView) findViewById(R.id.editT);
 
-
+        context = (VariableGlobale) this.getApplicationContext();
 
         accueil = (Button) findViewById(R.id.bouton_accueil);
         event = (Button) findViewById(R.id.bouton_event);
@@ -65,7 +65,7 @@ public class filActu extends Activity implements View.OnClickListener {
 
     private void extractJSON() {
         try {
-            user = new JSONArray(myJSONString);
+            user = new JSONArray(context.getlistEvent());
         } catch (JSONException e) {
             e.printStackTrace();
         }

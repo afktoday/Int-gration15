@@ -1,7 +1,5 @@
 package be.ti.groupe2.projetintegration;
 
-
-
 import android.content.Intent;
 import android.app.Activity;
 import android.os.Bundle;
@@ -31,6 +29,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         VariableGlobale context;
 
 
+
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -47,10 +46,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
             cError.setVisibility(View.INVISIBLE);
 
+            context = (VariableGlobale) this.getApplicationContext();
 
+            functions.getJSON(JSON_URL, lv);
 
-            resu = functions.getJSON(JSON_URL, lv, myJson);
-            context.setListEvent(resu);
 
             connexion.setOnClickListener(this);
             inscription.setOnClickListener(this);
@@ -66,7 +65,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 System.out.println("myjson : " + myJson);
 
 
-                JSONArray result = functions.extractJson(myJson);
+                JSONArray result = functions.extractJson(lv.getText().toString());
 
                 functions.searchLogin(result, granted, login, mdp);
 
@@ -74,9 +73,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
                 if(granted) {
                     System.out.println("Connexion réussie");
-                    Intent intent = new Intent(this, filActu.class);
-                    intent.putExtra(MY_JSON, lv.getText().toString());
-                    startActivity(intent);
+                    String events = lv.getText().toString();
+                    context.getApplicationContext();
+                    System.out.println("---------------    "+ context);
+                    context.setListEvent(events);
+                    Intent profilFilActu = new Intent(this, filActu.class);
+                    startActivity(profilFilActu);
                 }
                 else {
                     cError.setText("Login/mdp incorrect(s)");
