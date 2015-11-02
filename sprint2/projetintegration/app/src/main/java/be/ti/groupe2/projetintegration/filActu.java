@@ -2,11 +2,8 @@ package be.ti.groupe2.projetintegration;
 
 import java.util.*;
 import android.content.Intent;
-import android.os.AsyncTask;
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ArrayAdapter;
@@ -17,16 +14,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 
-public class filActu extends ActionBarActivity implements View.OnClickListener {
+public class filActu extends Activity implements View.OnClickListener {
 
     private String myJSONString;
-    public static final String JSON_URL = "http://projet_groupe2.hebfree.org/Clients.php";
     private static final String USERNAME = "userLogin";
     private static final String MAIL = "userEmail";
     private static final String PASSWORD = "userPassword";
@@ -36,7 +28,9 @@ public class filActu extends ActionBarActivity implements View.OnClickListener {
     private TextView editT;
 
     String myJson;
-    Button kiwi;
+    Button accueil;
+    Button event;
+    Button profil;
 
     List <String> list;
     ArrayAdapter<String> adapter;
@@ -57,10 +51,12 @@ public class filActu extends ActionBarActivity implements View.OnClickListener {
 
 
 
-        kiwi = (Button) findViewById(R.id.kiwi);
-
-        kiwi.setOnClickListener(this);
-
+        accueil = (Button) findViewById(R.id.buttonAccueil);
+        event = (Button) findViewById(R.id.buttonEvent);
+        profil = (Button) findViewById(R.id.buttonProfil);
+        accueil.setOnClickListener(this);
+        event.setOnClickListener(this);
+        profil.setOnClickListener(this);
 
 
         extractJSON();
@@ -90,8 +86,8 @@ public class filActu extends ActionBarActivity implements View.OnClickListener {
     }
     @Override
     public void onClick(View v) {
-        if(v == kiwi){
-            System.out.println("myjson : " + myJson);
+
+        if(v == accueil){
             extractJSON();
             list=new ArrayList<String>();
             int length = user.length();
@@ -102,10 +98,15 @@ public class filActu extends ActionBarActivity implements View.OnClickListener {
                 length --;
             }
             adapter = new ArrayAdapter<String>(this, R.layout.list, R.id.editT, list);
-            //adapter = new ArrayAdapter<String>(this,R.layout.accueil,R.id.editT,list);
 
             tv.setAdapter(adapter);
 
+        }
+        if(v == event){
+            setContentView(R.layout.gestion_evenement);
+        }
+        if(v == profil){
+            setContentView(R.layout.activity_gestion_du_profil);
         }
     }
 }

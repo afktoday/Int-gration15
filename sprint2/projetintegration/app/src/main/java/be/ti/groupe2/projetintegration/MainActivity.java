@@ -3,18 +3,15 @@ package be.ti.groupe2.projetintegration;
 
 
 import android.app.ProgressDialog;
-import android.content.ContentValues;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.provider.Settings;
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -27,37 +24,24 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.DataOutputStream;
-import java.io.InputStream;
+
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 
-public class MainActivity extends ActionBarActivity implements View.OnClickListener {
+public class MainActivity extends Activity implements View.OnClickListener {
 
     public static final String MY_JSON ="MY_JSON";
-    //==============================================================================================
-    //============================================MENU==============================================
-    //==============================================================================================
-
-    public void VersProfil(View view) {setContentView(R.layout.activity_gestion_du_profil);}
-    public void VersEvent(View view) {setContentView(R.layout.creation_evenement);}
-    public void VersFil(View view) {setContentView(R.layout.accueil);}
 
     //==============================================================================================
     //=========================================CONNEXION============================================
     //==============================================================================================
+
     public static final String JSON_URL = "http://projet_groupe2.hebfree.org/Clients.php";
     private static final String ID = "userID";
     private static final String USERNAME= "userLogin";
@@ -99,9 +83,11 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                     while((json = bufferedReader.readLine()) != null){
                         sb.append(json+"\n");
                     }
+                    System.out.println("CA MARCHE LE N'INTENET");
 
                     return sb.toString().trim();
                 }catch (Exception e){
+                    System.out.println("CA MARCHE PAS LE N'INTENET");
                     return null;
                 }
             }
@@ -118,6 +104,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 loading.dismiss();
                 lv.setText(s);
                 myJson = s;
+
             }
         }
         GetJSON gj = new GetJSON();
@@ -382,18 +369,17 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             System.out.println("login : " + login);
             System.out.println("myjson : " + myJson);
 
+
             extractJson();
             searchLogin();
 
             if(granted) {
                 System.out.println("Connexion réussie");
-                //Toast.makeText(this, "Connexion réussie!",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(this, filActu.class);
                 intent.putExtra(MY_JSON, lv.getText().toString());
                 startActivity(intent);
             }
             else {
-                //Toast.makeText(this, "Connexion échouée!", Toast.LENGTH_SHORT).show();
                 cError.setText("Login/mdp incorrect(s)");
                 cError.setVisibility(View.VISIBLE);
             }

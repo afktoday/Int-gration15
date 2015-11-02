@@ -2,19 +2,28 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="435dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="0.61">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="435dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.61">
 
-            <ListView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvk"
-                android:layout_centerHorizontal="true" />
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvk"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/buttonCreation" />
 
-        </RelativeLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Créez votre propre évenement!"
+            android:id="@+id/buttonCreation"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
 
 
 
